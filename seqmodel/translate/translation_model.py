@@ -387,6 +387,7 @@ class TranslationModel:
         utils.log('starting training')
         while True:
             try:
+                utils.log(str(self.training.steps)+' | LOSS : '+str(self.training.loss/(self.training.steps+1))) #tem
                 self.train_step(loss_function=loss_function, **kwargs)
             except (utils.FinishedTrainingException, KeyboardInterrupt):
                 utils.log('exiting...')
